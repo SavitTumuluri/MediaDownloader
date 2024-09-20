@@ -28,8 +28,8 @@ function App() {
       <header className="App-header">
         <div className="App-popup">
           <h1>Welcome to MediaConverter</h1>
-          <button>
-            Hello
+          <button className='button_ui'>
+            Enter
           </button>
         </div>
       </header>
