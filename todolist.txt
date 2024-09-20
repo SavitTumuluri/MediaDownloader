@@ -1,4 +1,5 @@
 1. figure out how to make a website with a url
 2. Pretty front page (animation preferrably darker video, or just have a pretty dark background like a black starry sky).
 3. funtionality (to be worked on)
+    - Login system to save media/links that has been downloaded
 4. deployment and monetization (google adsense)
