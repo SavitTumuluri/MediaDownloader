@@ -58,6 +58,18 @@
   color: #61dafb;
 }
 
+.link_input {
+  position: relative;
+  width: 750px;
+  height: 30px;
+}
+
+.link_submit{
+  position: relative;
+  width: 75px;
+  height: 35px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
