@@ -1,0 +1,43 @@
+.custom-select {
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+  }
+  
+  .selected-item {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .options {
+    position: absolute;
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+    margin-top: 5px;
+    z-index: 1;
+  }
+  
+  .custom-select:hover .options {
+    display: block;
+  }
+  
+  .option-item {
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .option-item:hover {
+    background-color: #555;
+  }
+  
+  .option-icon {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+  }

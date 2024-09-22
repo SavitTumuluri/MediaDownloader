@@ -70,6 +70,11 @@
   height: 35px;
 }
 
+.youtube-option {
+  background: url('./youtube_logo.png') no-repeat left center;
+  padding-left: 25px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
