@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="App-popup">
+        
           <h1>Welcome to MediaConverter Home</h1>
           <label htmlFor="options"></label>
           {/*<select id="options" className='link_submit'>
@@ -20,7 +20,7 @@ function Home() {
           <CustomSelect onChange={handleSelectChange} />
           <input id="url" type="text" className='link_input'></input>
           <input type="submit" value="Convert" className='link_submit'></input>
-        </div>
+        
       </header>
     </div>
   )
