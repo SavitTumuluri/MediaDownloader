@@ -5,5 +5,6 @@ links used:
 2. Pretty front page (animation preferrably darker video, or just have a pretty dark background like a black starry sky).
     - https://stackoverflow.com/questions/54157691/proper-way-to-handle-different-screen-sizes-in-react-native
 3. funtionality (to be worked on)
+    - https://www.npmjs.com/package/ytdl-core
     - Login system to save media/links that has been downloaded
 4. deployment and monetization (google adsense)
