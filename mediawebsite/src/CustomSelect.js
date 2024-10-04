@@ -7,10 +7,16 @@ const options = [
 
 function CustomSelect({ onChange }) {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     onChange(option);
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (

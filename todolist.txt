@@ -8,7 +8,9 @@ links used:
     - https://www.npmjs.com/package/ytdl-core
     - Login system to save media/links that has been downloaded
 4. deployment and monetization (google adsense)
-
+5. legality
+    - reference: https://y2mate.nu/MKCh/
+    
 modules used:
     - axios: api calls
     - ytdl-core: js based youtube downloading
