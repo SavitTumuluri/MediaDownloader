@@ -1,12 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CustomSelect from './CustomSelect';
+import axios from 'axios';
 
 function Home() {
-  const handleSelectChange = (option) => {
-    console.log('Selected option:', option);
-  };
+  const [url, setUrl] = useState('');
+  const [option, setOption] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
   
+  const handleSelectChange = (selectedOption) => {
+    console.log('Selected option:', selectedOption);
+  };
+
+  const handleInputChange = (e) => {
+    setUrl(e.target.value);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!url || !option) {
+      setMessage('Please select an option and provide a URL.');
+      return;
+    }
+    setLoading(true);
+    setMessage('');
+
+  try {
+    const response = await axios.post('http://localhost:5000/download', { url }, { responseType: 'blob' });
+    const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.setAttribute('download', 'video.mp3');
+    document.body.appendChild(link);
+    link.click();
+    setMessage('Download started!');
+  } catch (error) {
+    console.error('Error downloading the video:', error);
+    setMessage('Failed to download. Please try again.');
+  }
+
+  setLoading(false);
+};
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,10 +55,19 @@ function Home() {
           </select>*/}
           <div className='input-container'>
             <CustomSelect onChange={handleSelectChange} />
-            <input id="url" type="text" className='link_input'></input>
-            <input type="submit" value="Convert" className='link_submit'></input>
+            <input id="url" 
+              type="text" 
+              className='link_input' 
+              value={url} 
+              onChange={handleInputChange}
+              placeholder="Enter URL"></input>
+            <input type="submit" 
+              value={loading ? 'Converting...' : 'Convert'}
+              className='link_submit'
+              onClick={handleFormSubmit}
+              disabled={loading}></input>
           </div>
-        
+        {message && <p>{message}</p>}
       </header>
     </div>
   )
