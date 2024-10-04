@@ -5,15 +5,15 @@
   }
   
   .selected-item {
-    background-color: #333;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 4px;
   }
   
   .options {
     position: absolute;
-    background-color: #444;
+    background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 4px;
     display: none;
@@ -27,7 +27,7 @@
   
   .option-item {
     padding: 10px;
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
   }
