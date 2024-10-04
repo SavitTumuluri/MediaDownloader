@@ -17,9 +17,11 @@ function Home() {
             <option value="" disabled selected>Select</option>
             <option value="Youtube">Youtube</option>
           </select>*/}
-          <CustomSelect onChange={handleSelectChange} />
-          <input id="url" type="text" className='link_input'></input>
-          <input type="submit" value="Convert" className='link_submit'></input>
+          <div className='input-container'>
+            <CustomSelect onChange={handleSelectChange} />
+            <input id="url" type="text" className='link_input'></input>
+            <input type="submit" value="Convert" className='link_submit'></input>
+          </div>
         
       </header>
     </div>

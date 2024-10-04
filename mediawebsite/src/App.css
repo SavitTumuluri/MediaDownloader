@@ -16,6 +16,7 @@
 .App-header {
   /*background-color: #585c63;*/
   background-color: #000000;
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,4 +83,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.link_input {
+  margin-left: 10px; /* Adds space between the dropdown and input */
+  width: 300px;
+}
+
+.link_submit {
+  margin-right: 10px;
 }
