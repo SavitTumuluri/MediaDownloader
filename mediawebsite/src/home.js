@@ -8,19 +8,41 @@ function Home() {
   const [option, setOption] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const websiteHostnames = {
+    Youtube: ['www.youtube.com', 'youtube.com', 'youtu.be'],
+    instagram: ['www.instagram.com', 'instagram.com']
+  };
   
   const handleSelectChange = (selectedOption) => {
     console.log('Selected option:', selectedOption);
+    setOption(selectedOption);
   };
 
   const handleInputChange = (e) => {
     setUrl(e.target.value);
   };
 
+  function confirmURL(domainType, url) {
+    console.log(domainType, url, websiteHostnames[domainType])
+    try {
+      const parsedURL = new URL(url);
+      return websiteHostnames[domainType].includes(parsedURL.hostname);
+    } catch {
+      return false;
+    }
+  }
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    console.log(url);
+    console.log(option);
     if (!url || !option) {
       setMessage('Please select an option and provide a URL.');
+      return;
+    } else if (confirmURL(option.value, url)) {
+      setMessage(`URL: ${url}`);
+    } else {
+      setMessage(`Not a {option.value} URL`);
       return;
     }
     setLoading(true);
