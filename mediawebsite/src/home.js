@@ -43,16 +43,15 @@ function Home() {
     } else if (confirmURL(option.value, url)) {
       setMessage(`URL: ${url}`);
     } else {
-      setMessage(`Not a {option.value} URL`);
+      setMessage(`Not a ${option.value} URL`);
       return;
     }
     setLoading(true);
     setMessage('');
 
     try {
-      const test = await axios.get('http://localhost:5000/download')
       console.log('post sent');
-      const response = await axios.post('http://localhost:5000/download', { url }, { responseType: 'blob' });
+      const response = await axios.post(`http://localhost:5000/download/${option.value}`, { url }, { responseType: 'blob' });
       console.log('creating blob');
       const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
       console.log('creating download link');
