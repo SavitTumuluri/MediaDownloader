@@ -10,7 +10,8 @@ function Home() {
   const [message, setMessage] = useState('');
   const websiteHostnames = {
     Youtube: ['www.youtube.com', 'youtube.com', 'youtu.be'],
-    instagram: ['www.instagram.com', 'instagram.com']
+    instagram: ['www.instagram.com', 'instagram.com'],
+    spotify: ['open.spotify.com']
   };
   
   const handleSelectChange = (selectedOption) => {

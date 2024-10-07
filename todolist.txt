@@ -10,6 +10,8 @@ links used:
 4. deployment and monetization (google adsense)
 5. legality
     - reference: https://y2mate.nu/MKCh/
+    - https://spotifydown.com/
+    
     
 modules used:
     - axios: api calls
