@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './CustomSelect.css';
 
 const options = [
-  { value: 'Youtube', label: 'YouTube', icon: '/youtube_logo.png' }
+  { value: 'Youtube', label: 'YouTube', icon: '/youtube_logo.png' },
+  { value: 'spotify', label: 'Spotify', icon: '/spotify_logo.png' }
 ];
 
 function CustomSelect({ onChange }) {
