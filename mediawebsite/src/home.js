@@ -50,6 +50,7 @@ function Home() {
     setMessage('');
 
     try {
+      const endpoint = option.value === 'spotify' ? '/downloadSpotify' : '/download';
       const test = await axios.get('http://localhost:5000/download')
       console.log('post sent');
       const response = await axios.post('http://localhost:5000/download', { url }, { responseType: 'blob' });

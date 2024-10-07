@@ -3,9 +3,12 @@ const cors = require('cors');
 const ytdl = require('@distube/ytdl-core');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
+const SpotifyDL = require('@nechlophomeriaa/spotifydl');
 ffmpeg.setFfmpegPath(ffmpegPath);
+
 const path = require('path');
 const fs = require('fs');
+
 
 const app = express();
 const port = 5000;
@@ -56,6 +59,28 @@ app.post('/download', async (req, res) => {
   } catch (err) {
     console.error('Unexpected error:', err); // Log unexpected errors
     res.status(500).send('Failed to process the request');
+  }
+});
+
+app.post('/downloadSpotify', async (req, res) => {
+  const { url } = req.body;
+
+  if (!SpotifyDL.isValidSpotifyUrl(url)) {
+    return res.status(400).send('Invalid Spotify URL');
+  }
+
+  try {
+    const trackData = await spotify.downloadTrack(url);
+
+    res.set({
+      'Content-Disposition': `attachment; filename="${trackData.name}.mp3"`,
+      'Content-Type': 'audio/mpeg',
+    });
+
+    trackData.stream.pipe(res);
+  } catch (error) {
+    console.error('Error downloading Spotify track:', error);
+    res.status(500).send('Failed to download from Spotify.');
   }
 });
 
