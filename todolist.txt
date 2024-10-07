@@ -13,5 +13,11 @@ links used:
     
 modules used:
     - axios: api calls
-    - ytdl-core: js based youtube downloading
+    - ytdl-core: js based youtube downloading X don't download youtube made it error
+    - @distube/ytdl-core: working youtube downloading
     - express: server-side processing
+    - cor: express middleware 
+    - fluent-ffmpeg: makes ffmpeg easier
+    - ffmpeg: media converter (npm install --save @ffmpeg-installer/ffmpeg)
+    - concurrently: run backend and frontend at same time
+    - nodemon: restart node app when changes detected

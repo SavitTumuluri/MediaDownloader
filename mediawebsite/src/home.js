@@ -48,22 +48,27 @@ function Home() {
     setLoading(true);
     setMessage('');
 
-  try {
-    const response = await axios.post('http://localhost:5000/download', { url }, { responseType: 'blob' });
-    const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement('a');
-    link.href = downloadUrl;
-    link.setAttribute('download', 'video.mp3');
-    document.body.appendChild(link);
-    link.click();
-    setMessage('Download started!');
-  } catch (error) {
-    console.error('Error downloading the video:', error);
-    setMessage('Failed to download. Please try again.');
-  }
-
-  setLoading(false);
-};
+    try {
+      const test = await axios.get('http://localhost:5000/download')
+      console.log('post sent');
+      const response = await axios.post('http://localhost:5000/download', { url }, { responseType: 'blob' });
+      console.log('creating blob');
+      const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+      console.log('creating download link');
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.setAttribute('download', 'video.mp3');
+      document.body.appendChild(link);
+      console.log('clicking download link');
+      link.click();
+      setMessage('Download started!');
+    } catch (error) {
+      console.error('Error downloading the video:', error);
+      setMessage('Failed to download. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="App">
